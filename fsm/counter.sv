@@ -1,5 +1,5 @@
 // 4進カウンタ
-// iverilog counter.sv && ./a.out
+// iverilog -g 2012 counter.sv && ./a.out
 
 module counter(
     input clk, reset,
