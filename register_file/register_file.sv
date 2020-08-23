@@ -1,5 +1,5 @@
-# register_file
-# $ iverilog -g 2012 register_file.sv && ./a.out
+// register_file
+// $ iverilog -g 2012 register_file.sv && ./a.out
 module register_file
 #(
     parameter DATA_WIDTH = 8,
@@ -11,7 +11,7 @@ module register_file
     input [DATA_WIDTH-1:0] w_data,
     output [DATA_WIDTH-1:0] r_data
 );
-    logic [DATA_WIDTH-1:0] registers [ADDR_WIDTH-1:0];
+    logic [DATA_WIDTH-1:0] registers [(ADDR_WIDTH**2)-1:0];
 
     assign r_data = registers[r_addr];
 
@@ -23,10 +23,10 @@ endmodule
 
 module register_file_testbench();
     logic clk, w_en;
-    logic [3:0] w_addr, r_addr;
+    logic [1:0] w_addr, r_addr;
     logic [7:0] w_data, r_data;
     
-    register_file #(.DATA_WIDTH(8), .ADDR_WIDTH(4)) rf (
+    register_file #(.DATA_WIDTH(8), .ADDR_WIDTH(2)) rf (
         .clk(clk),
         .w_en(w_en),
         .w_addr(w_addr),
@@ -36,6 +36,9 @@ module register_file_testbench();
     );
 
     initial begin
+        $dumpfile("register_file.vcd");
+        $dumpvars(0, rf);
+
         clk = 0;
         w_en = 0;
         w_addr = 2'b0;
@@ -65,25 +68,25 @@ module register_file_testbench();
         assert(r_data == 8'hEE) $display("PASSED"); else $display("FAILED %b", r_data);
 
         // R[2] <= 0xDD
-        w_addr = 2'd2;
+        w_addr = 2'b10;
         w_data = 8'hDD;
         w_en = 1;
         clk = 1; #10
         clk = 0; #10
 
         w_en = 0;
-        r_addr = 2'd2; #10
+        r_addr = 2'b10; #10
         assert(r_data == 8'hDD) $display("PASSED"); else $display("FAILED %b", r_data);
 
         // R[3] <= 0xCC
-        w_addr = 2'd3;
+        w_addr = 2'b11;
         w_data = 8'hCC;
         w_en = 1;
         clk = 1; #10
         clk = 0; #10
 
         w_en = 0;
-        r_addr = 2'd3; #10
+        r_addr = 2'b11; #10
         assert(r_data == 8'hCC) $display("PASSED"); else $display("FAILED %b", r_data);
 
         r_addr = 2'd0; #10
