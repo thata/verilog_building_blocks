@@ -68,12 +68,15 @@ module uart_rx(
                         begin
                             s_next = 4'd0;
 
-                            // NOTE: 以下のようなエラーが出るのでなんとかしたい...
-                            // ```
-                            // constant selects in always_* processes are not currently supported
-                            // (all bits will be included).
-                            // ```
-                            b_next = {rx, b_reg[7:1]};
+                            // NOTE: やりたいことは以下のようなことなんだけど、
+                            //
+                            //   b_next = {rx, b_reg[7:1]};
+                            //
+                            // 以下のエラーで怒られるのでなんかゴチャゴチャやってる
+                            //
+                            //   constant selects in always_* processes are not currently supported
+                            //   (all bits will be included).
+                            b_next = {rx, 7'b0} | (b_reg >> 1) & 8'b01111111;
 
                             if (n_reg == (N - 1))
                                 rx_state_next = stop;
