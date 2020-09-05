@@ -17,7 +17,9 @@ module uart_tx(
     logic [3:0] s_reg, s_next;
     logic [2:0] n_reg, n_next;
     logic [7:0] b_reg, b_next;
+    logic tx_reg, tx_next;
 
+    assign tx = tx_reg;
 
     always_ff @(posedge clk, posedge reset) begin
         if (reset)
@@ -26,6 +28,7 @@ module uart_tx(
                 s_reg <= 0;
                 n_reg <= 0;
                 b_reg <= 0;
+                tx_reg <= 1;
             end
         else
             begin
@@ -33,28 +36,28 @@ module uart_tx(
                 s_reg <= s_next;
                 n_reg <= n_next;
                 b_reg <= b_next;
+                tx_reg <= tx_next;
             end
     end
 
     always_comb begin
-        tx = 1;
         tx_done_tick = 0;
+        tx_state_next = tx_state_reg;
         s_next = s_reg;
         n_next = n_reg;
         b_next = b_reg;
+        tx_next = tx_reg;
 
         case (tx_state_reg)
             idle: begin
-                if (s_tick) begin
-                    if (tx_start) begin
-                        s_next = 0;
-                        b_next = din;
-                        tx_state_next = start;
-                    end                    
+                if (tx_start) begin
+                    s_next = 0;
+                    b_next = din;
+                    tx_state_next = start;
                 end
             end
             start: begin
-                tx = 0;
+                tx_next = 0;
                 if (s_tick) begin
                     if (s_reg == 15)
                         begin
@@ -67,7 +70,7 @@ module uart_tx(
                 end
             end
             data: begin
-                tx = b_reg & 8'b00000001;
+                tx_next = b_reg & 8'b00000001;
                 if (s_tick) begin
                     if (s_reg == 15)
                         begin
@@ -83,11 +86,12 @@ module uart_tx(
                 end
             end
             stop: begin
+                tx_next = 1;
                 if (s_tick == 1) begin
                     if (s_reg == (SB_TICK - 1))
                         begin
-                            tx_done_tick = 1;
                             tx_state_next = idle;
+                            tx_done_tick = 1;
                         end
                     else
                         s_next = s_reg + 1;
