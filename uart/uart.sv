@@ -40,10 +40,8 @@ module uart(
     uart_tx utx (
         .clk(clk),
         .reset(reset),
-        // .tx_start(wr_uart),
         .tx_start(~txfifo_empty),
         .s_tick(s_tick),
-        // .din(w_data),
         .din(txfifo_rdata),
         .tx_done_tick(tx_done_tick),
         .tx(tx)
@@ -59,7 +57,6 @@ module uart(
         .rd(rd_uart),
         .w_data(urx_dout),
         .r_data(r_data),
-        // .full(tx_full),
         .empty(rx_empty)
     );
 
@@ -257,11 +254,15 @@ module uart_testbench();
         rd_uart = 0;
         #10
 
+        #104000
+
         // 受信FIFOの先頭の値を取り除く（00も取り除き、不定値が返る）
         rd_uart = 1;
         #10
         rd_uart = 0;
         #10
+
+        #104000
 
         #2000000 $finish;
     end
