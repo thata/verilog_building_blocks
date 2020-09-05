@@ -78,7 +78,7 @@ module uart_testbench();
 
     initial begin
         $dumpfile("uart.vcd");
-        $dumpvars(1, dut);
+        $dumpvars(0, dut);
 
         clk = 0;
 
@@ -111,27 +111,44 @@ module uart_testbench();
 
         #1500000 // これくらい待てば送信も終わってるはず
 
-        // 送信データをセット
+        // FIFOバッファがいっぱいになるまでデータを書き込む
+
+        // 0xF0を書き込み（これはOK）
         w_data = 8'hF0;
         wr_uart = 1;
         #10
         wr_uart = 0;
+        #10
 
-        #1500000 // これくらい待てば送信も終わってるはず
-
-        // 送信データをセット
+        // 0x0Fを書き込み（これはOK）
         w_data = 8'h0F;
         wr_uart = 1;
         #10
         wr_uart = 0;
+        #10
 
-        #1500000 // これくらい待てば送信も終わってるはず
+        // 0x00を書き込み（これはOK）
+        w_data = 8'h00;
+        wr_uart = 1;
+        #10
+        wr_uart = 0;
+        #10
 
-        // TODO
-        // - [x] なんとなくtxに何かが出力されるようにする
-        // - [x] FIFOを経由してtxに出力されるようにする
+        // 0xFFを書き込み（これはOK）
+        w_data = 8'hFF;
+        wr_uart = 1;
+        #10
+        wr_uart = 0;
+        #10
 
+        // 0x00を書き込み（FIFOバッファがいっぱいなので、これは出力されない）
+        w_data = 8'h00;
+        wr_uart = 1;
+        #10
+        wr_uart = 0;
+        #10
 
+        #6000000 // これくらい待てば送信も終わってるはず
 
         #2000000 $finish;
     end
