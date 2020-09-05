@@ -45,10 +45,12 @@ module uart_tx(
 
         case (tx_state_reg)
             idle: begin
-                if (tx_start) begin
-                    s_next = 0;
-                    b_next = din;
-                    tx_state_next = start;
+                if (s_tick) begin
+                    if (tx_start) begin
+                        s_next = 0;
+                        b_next = din;
+                        tx_state_next = start;
+                    end                    
                 end
             end
             start: begin
