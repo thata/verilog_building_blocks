@@ -176,7 +176,7 @@ module uart_testbench();
         rd_uart = 0;
         #10
 
-        #104000
+        #500000
 
         // 受信FIFOの先頭の値を取り除く（AAから00になる）
         rd_uart = 1;
@@ -184,7 +184,7 @@ module uart_testbench();
         rd_uart = 0;
         #10
 
-        #104000
+        #500000
 
         // 受信FIFOの先頭の値を取り除く（00も取り除き、不定値が返る）
         rd_uart = 1;
