@@ -1,6 +1,9 @@
 // UART
 // iverilog -g 2012 -s uart_testbench uart.sv uart_rx.sv uart_tx.sv baud_gen.sv fifo.sv register_file.sv uart_testbench.sv && ./a.out 
-module uart(
+module uart #(
+    parameter ADDR_WIDTH = 4
+)
+(
     input logic clk,
     input logic reset,
     input logic rd_uart,
