@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 //iverilog -g 2012 -s loopback_testbench *.sv && ./a.out
 module loopback(
     input logic clk,
