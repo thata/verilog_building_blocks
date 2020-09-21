@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module loopback_testbench();
+module loopback_test();
     logic clk, reset, rx, tx;
 
     loopback dut (
@@ -19,12 +19,14 @@ module loopback_testbench();
         $dumpvars(0, dut);
 
         clk = 0;
+        reset = 0;
         rx = 1;
 
+        #10;
         reset = 1;
-        #10
+        #10;
         reset = 0;
-        #10
+        #10;
 
         /** 受信のテスト **/
 
