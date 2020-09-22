@@ -2,11 +2,11 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Mon Sep  7 20:14:06 2020
-# Process ID: 6732
+# Start of session at: Tue Sep 22 09:08:29 2020
+# Process ID: 8384
 # Current directory: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/impl_1
-# Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
-# Log file: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/impl_1/top.vdi
+# Command line: vivado.exe -log loopback.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source loopback.tcl -notrace
+# Log file: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/impl_1/loopback.vdi
 # Journal file: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
-source top.tcl -notrace
+source loopback.tcl -notrace

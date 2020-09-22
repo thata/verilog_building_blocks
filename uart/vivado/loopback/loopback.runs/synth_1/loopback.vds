@@ -1,0 +1,329 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Sep 22 09:05:48 2020
+# Process ID: 8776
+# Current directory: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/synth_1
+# Command line: vivado.exe -log loopback.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source loopback.tcl
+# Log file: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/synth_1/loopback.vds
+# Journal file: Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source loopback.tcl -notrace
+Command: synth_design -top loopback -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 7092
+WARNING: [Synth 8-6901] identifier 'N' is used before its declaration [Z:/home/thata/src/verilog_building_blocks/uart/uart_rx.sv:7]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'loopback' [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'uart' [Z:/home/thata/src/verilog_building_blocks/uart/uart.sv:3]
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'baud_gen' [Z:/home/thata/src/verilog_building_blocks/uart/baud_gen.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'baud_gen' (1#1) [Z:/home/thata/src/verilog_building_blocks/uart/baud_gen.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'fifo' [Z:/home/thata/src/verilog_building_blocks/uart/fifo.sv:4]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'register_file' [Z:/home/thata/src/verilog_building_blocks/uart/register_file.sv:1]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (2#1) [Z:/home/thata/src/verilog_building_blocks/uart/register_file.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'fifo' (3#1) [Z:/home/thata/src/verilog_building_blocks/uart/fifo.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [Z:/home/thata/src/verilog_building_blocks/uart/uart_tx.sv:2]
+	Parameter DBIT bound to: 8 - type: integer 
+	Parameter SB_TICK bound to: 16 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [Z:/home/thata/src/verilog_building_blocks/uart/uart_tx.sv:51]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (4#1) [Z:/home/thata/src/verilog_building_blocks/uart/uart_tx.sv:2]
+WARNING: [Synth 8-7071] port 'full' of module 'fifo' is unconnected for instance 'rxfifo' [Z:/home/thata/src/verilog_building_blocks/uart/uart.sv:55]
+WARNING: [Synth 8-7023] instance 'rxfifo' of module 'fifo' has 8 connections declared, but only 7 given [Z:/home/thata/src/verilog_building_blocks/uart/uart.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [Z:/home/thata/src/verilog_building_blocks/uart/uart_rx.sv:2]
+	Parameter N bound to: 8 - type: integer 
+	Parameter SB_TICK bound to: 16 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [Z:/home/thata/src/verilog_building_blocks/uart/uart_rx.sv:46]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (5#1) [Z:/home/thata/src/verilog_building_blocks/uart/uart_rx.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (6#1) [Z:/home/thata/src/verilog_building_blocks/uart/uart.sv:3]
+WARNING: [Synth 8-7071] port 'tx_full' of module 'uart' is unconnected for instance 'ut' [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:17]
+WARNING: [Synth 8-7023] instance 'ut' of module 'uart' has 11 connections declared, but only 10 given [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:17]
+INFO: [Synth 8-155] case statement is not full and has no default [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:56]
+INFO: [Synth 8-6155] done synthesizing module 'loopback' (7#1) [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:2]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [Z:/home/thata/src/verilog_building_blocks/uart/top.xdc]
+Finished Parsing XDC File [Z:/home/thata/src/verilog_building_blocks/uart/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [Z:/home/thata/src/verilog_building_blocks/uart/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/loopback_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/loopback_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'tx_state_reg_reg' in module 'uart_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'rx_state_reg_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'loopback_status_reg_reg' in module 'loopback'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 | 00000000000000000000000000000000
+                   start |                               01 | 00000000000000000000000000000001
+                    data |                               10 | 00000000000000000000000000000010
+                    stop |                               11 | 00000000000000000000000000000011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'tx_state_reg_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 | 00000000000000000000000000000000
+                   start |                               01 | 00000000000000000000000000000001
+                    data |                               10 | 00000000000000000000000000000010
+                    stop |                               11 | 00000000000000000000000000000011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rx_state_reg_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                            00001 | 00000000000000000000000000000000
+               read_data |                            00010 | 00000000000000000000000000000001
+               read_uart |                            00100 | 00000000000000000000000000000010
+              write_data |                            01000 | 00000000000000000000000000000011
+              write_uart |                            10000 | 00000000000000000000000000000100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'loopback_status_reg_reg' using encoding 'one-hot' in module 'loopback'
+WARNING: [Synth 8-327] inferring latch for variable 'w_data_next_reg' [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:71]
+WARNING: [Synth 8-327] inferring latch for variable 'r_data_next_reg' [Z:/home/thata/src/verilog_building_blocks/uart/loopback.sv:63]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 4     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input   11 Bit        Muxes := 1     
+	   4 Input    8 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	   4 Input    4 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 2     
+	   4 Input    1 Bit        Muxes := 24    
+	   2 Input    1 Bit        Muxes := 8     
+	   3 Input    1 Bit        Muxes := 4     
+	   5 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++------------+----------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                       | Inference | Size (Depth x Width) | Primitives  | 
++------------+----------------------------------+-----------+----------------------+-------------+
+|loopback    | ut/txfifo/reg_file/registers_reg | Implied   | 4 x 8                | RAM32M x 2	 | 
+|loopback    | ut/rxfifo/reg_file/registers_reg | Implied   | 4 x 8                | RAM32M x 2	 | 
++------------+----------------------------------+-----------+----------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++------------+----------------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object                       | Inference | Size (Depth x Width) | Primitives  | 
++------------+----------------------------------+-----------+----------------------+-------------+
+|loopback    | ut/txfifo/reg_file/registers_reg | Implied   | 4 x 8                | RAM32M x 2	 | 
+|loopback    | ut/rxfifo/reg_file/registers_reg | Implied   | 4 x 8                | RAM32M x 2	 | 
++------------+----------------------------------+-----------+----------------------+-------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |LUT1   |     1|
+|3     |LUT2   |     8|
+|4     |LUT3   |    13|
+|5     |LUT4   |    17|
+|6     |LUT5   |    14|
+|7     |LUT6   |    32|
+|8     |RAM32M |     4|
+|9     |FDCE   |    77|
+|10    |FDPE   |     5|
+|11    |LD     |    16|
+|12    |IBUF   |     3|
+|13    |OBUF   |     1|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1016.695 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 20 instances were transformed.
+  LD => LDCE: 16 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+38 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:38 . Memory (MB): peak = 1016.695 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'Z:/home/thata/src/verilog_building_blocks/uart/vivado/loopback/loopback.runs/synth_1/loopback.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file loopback_utilization_synth.rpt -pb loopback_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 22 09:06:32 2020...
